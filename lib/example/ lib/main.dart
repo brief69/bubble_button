@@ -7,7 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 void main() => runApp(const ProviderScope(child: BubbleButton()));
 
 class BubbleButton extends StatelessWidget {
-  const BubbleButton({super.key});
+  const BubbleButton(bubble, {super.key});
 
   @override
   Widget build(BuildContext context) {

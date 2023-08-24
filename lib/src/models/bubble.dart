@@ -1,4 +1,4 @@
-
+ // /Users/ir/Desktop/BubbleButton/bubble_button/lib/src/models/bubble.dart
 
 import 'dart:ui';
 
@@ -21,4 +21,18 @@ class Bubble {
 
   get state => null;
 }
+
+class MergingBubble {
+  final Bubble bubble1;
+  final Bubble bubble2;
+  double progress; // 0.0 (完全に分割) から 1.0 (完全に結合) まで
+
+  MergingBubble({
+    required this.bubble1,
+    required this.bubble2,
+    this.progress = 0.0,
+  });
+  // TODO #1:結合の進捗に基づいてバブルの現在のサイズや形状を計算するロジックを追加
+}
+
 
