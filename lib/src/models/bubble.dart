@@ -8,6 +8,7 @@ class Bubble {
   final Color color;
   final String label;
   int updates; // 更新の数
+  int dataSize; // データの量（例: バイト数、項目数など）
 
   Bubble({
     required this.id,
@@ -15,6 +16,7 @@ class Bubble {
     required this.color,
     required this.label,
     this.updates = 0,
+    this.dataSize = 0,
   });
 
   get state => null;
