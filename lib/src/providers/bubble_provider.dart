@@ -1,4 +1,4 @@
-// 
+// /Users/ir/Desktop/BubbleButton/bubble_button/lib/src/providers/bubble_provider.dart
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -8,12 +8,13 @@ final singleBubbleProvider = StateProvider<Bubble>((ref) => Bubble(
     id: '1', size: 50.0, color: Colors.blue, label: 'Default Bubble'));
 
 final bubbleUpdateProvider = Provider<void>((ref) {
-  final bubble = ref.read(singleBubbleProvider).state;
+  final bubble = ref.read(singleBubbleProvider).state ?? Bubble(
+      id: '0', size: 0.0, color: Colors.blue, label: 'Fallback Bubble');
   final updatedBubble = bubble.copyWith(
     updates: bubble.updates + 1,
     size: bubble.recalculateSize()
   );
-  ref.read(singleBubbleProvider).state = updatedBubble;
+  ref.container.read(singleBubbleProvider.notifier).state = updatedBubble;
 });
 
 final bubbleNotifierProvider = StateNotifierProvider.family<BubbleNotifier, Bubble, String>((ref, id) {
@@ -23,17 +24,16 @@ final bubbleNotifierProvider = StateNotifierProvider.family<BubbleNotifier, Bubb
 class BubbleNotifier extends StateNotifier<Bubble> {
   final String id;
 
-  BubbleNotifier({required this.id}) : super(Bubble(id: id));
+  BubbleNotifier({required this.id}) : super(Bubble(id: id, color: Colors.black, label: ''));
   
   void updateLabel(String newLabel) {
-    state = state.copyWith(label: newLabel);
+    state = state.copyWith(label: newLabel, color: Colors.red);
   }
   
   void updateColor(Color newColor) {
-    state = state.copyWith(color: newColor);
+    state = state.copyWith(color: newColor, label: '');
   }
 }
-
 
 final mergingBubblesProvider = StateNotifierProvider<MergingBubblesNotifier, List<MergingBubble>>((ref) {
   return MergingBubblesNotifier();

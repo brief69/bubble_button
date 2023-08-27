@@ -1,24 +1,32 @@
-
+// /Users/ir/Desktop/BubbleButton/bubble_button/lib/src/providers/bubble_interaction_provider.dart
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../models/bubble.dart';
 
 final bubbleListProvider = StateProvider<List<Bubble>>((ref) => [
   // 初期バブルのリスト
 ]);
 
 final bubbleInteractionProvider = Provider<void>((ref) {
-  final bubbleList = ref.read(bubbleListProvider).state;
+  final bubbleListState = ref.read(bubbleListProvider.notifier);
+  final bubbleList = bubbleListState.state;
 
   // すべてのバブル間での相互作用を計算
+  List<Bubble> newBubbleList = [];
   for (var bubble in bubbleList) {
+    var newBubble = bubble.clone(); // Bubble クラスに clone メソッドが必要
     for (var otherBubble in bubbleList) {
       if (bubble != otherBubble) {
         // 他のバブルとの距離や相互作用を計算
-        // このロジックは簡単なものとして、
-        // あるバブルが一定のサイズを超えると、他のバブルを下に移動させるとします。
-        if (bubble.size > 100) {
-          // 他のバブルを下に移動
-          otherBubble.size -= 10;
+        if (newBubble.size > 100) {
+          var newOtherBubble = otherBubble.clone();
+          newOtherBubble.size -= 10;
+          newBubbleList.add(newOtherBubble);
+        } else {
+          newBubbleList.add(otherBubble.clone());
         }
       }
     }
+    newBubbleList.add(newBubble);
   }
+  bubbleListState.state = newBubbleList;
 });

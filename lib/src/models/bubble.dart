@@ -19,7 +19,31 @@ class Bubble {
     this.dataSize = 0,
   });
 
-  get state => null;
+  get state => null; // TODO #3:明確な型と値を返すように修正
+
+  Bubble clone() {
+    // TODO #4:cloneメソッドの適切な実装が必要
+    return Bubble(
+      id: id,
+      size: size,
+      color: color,
+      label: label,
+      updates: updates,
+      dataSize: dataSize
+    );
+  }
+
+  Bubble copyWith({required Color color, required String label}) {
+    // copyWith メソッドを修正して、新しい Bubble インスタンスを返すようにする
+    return Bubble(
+      id: id,
+      size: size,
+      color: color,
+      label: label,
+      updates: updates,
+      dataSize: dataSize,
+    );
+  }
 }
 
 class MergingBubble {
@@ -32,7 +56,5 @@ class MergingBubble {
     required this.bubble2,
     this.progress = 0.0,
   });
-  // TODO #1:結合の進捗に基づいてバブルの現在のサイズや形状を計算するロジックを追加
+  // TODO #1: 結合の進捗に基づいてバブルの現在のサイズや形状を計算するロジックを追加
 }
-
-

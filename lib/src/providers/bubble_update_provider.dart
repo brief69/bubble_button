@@ -5,6 +5,7 @@ import 'bubble_provider.dart';
 
 
 final bubbleUpdateProvider = Provider<void>((ref) {
+  ProviderListenable bubbleProvider;
   final bubble = ref.read(bubbleProvider).state;
   bubble.updates++; // 更新の数を増やす
   
