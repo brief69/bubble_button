@@ -1,17 +1,18 @@
-
+// /Users/ir/Desktop/BubbleButton/bubble_button/lib/src/providers/bubble_update_provider.dart
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'bubble_provider.dart';
 
 
 final bubbleUpdateProvider = Provider<void>((ref) {
-  ProviderListenable bubbleProvider;
-  final bubble = ref.read(bubbleProvider).state;
-  bubble.updates++; // 更新の数を増やす
-  
-  // ここでデータの量を更新するロジックを追加します。
-  // 例えば、データが10バイト増えたとする
-  bubble.dataSize += 10;
+  final bubbleState = ref.read(singleBubbleProvider);
+  final bubble = bubbleState.state;
 
-  bubble.recalculateSize(); // サイズを再計算
+  final updatedBubble = bubble.copyWith(
+    updates: bubble.updates + 1,
+    dataSize: bubble.dataSize + 10, // 例: データが10バイト増えた
+    // その他の更新が必要な場合
+  );
+
+   ref.container.read(singleBubbleProvider.notifier).state = updatedBubble;
 });
