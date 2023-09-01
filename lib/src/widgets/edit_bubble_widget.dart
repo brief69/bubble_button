@@ -1,6 +1,5 @@
 
 
-import 'package:bubble_button/src/providers/bubble_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -9,20 +8,25 @@ import '../models/bubble.dart';
 
 class EditBubbleWidget extends ConsumerWidget {
   final Bubble bubble;
+  final TextEditingController _labelController;
 
-  const EditBubbleWidget(this.bubble, {super.key});
+  EditBubbleWidget(this.bubble, {Key? key})
+      : _labelController = TextEditingController(text: bubble.label),
+        super(key: key);
+
+  get bubbleProvider => null;
 
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
-    final currentBubble = watch(bubbleProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final currentBubble =ref.watch(bubbleProvider);
 
     return Column(
       children: [
         // ラベルの編集
         TextField(
-          initialValue: currentBubble.label,
+          controller: _labelController,
           onChanged: (value) {
-            context.read(bubbleProvider).state.label = value;
+            ref.read(bubbleProvider).state.label = value;
           },
         ),
         // 色の編集
@@ -30,7 +34,7 @@ class EditBubbleWidget extends ConsumerWidget {
           onPressed: () async {
             Color? newColor = await _showColorPicker(context, currentBubble.color);
             if (newColor != null) {
-              context.read(bubbleProvider).state.color = newColor;
+              ref.read(bubbleProvider).state.color = newColor;
             }
           },
           child: const Text("色を変更"),
