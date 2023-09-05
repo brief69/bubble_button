@@ -1,51 +1,43 @@
 # Flutter Bubble Button 🌐
 
-[![Flutter CI](https://github.com/brief69/BubbleButton/workflows/Flutter%20CI/badge.svg)](URL_to_CI_results) 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+Flutter CI License: MIT
 
-`BubbleButton`はFlutterで動作するダイナミックバブルボタンウィジェットです。各バブルはデータの更新量に応じてサイズ変更し、他のバブルとの相互作用を特徴としています。
+The BubbleButton is a dynamic bubble button widget that operates in Flutter. Each bubble resizes according to the amount of data update and features interactions with other bubbles.
 
-![BubbleButton Demo](path_to_gif_or_screenshot)
+![BubbleButton Demo](path-to-demo-image-if-any)
 
-## 🌟 特徴
+🌟 **Features**
 
-- データの更新数や量に基づいて動的にサイズが変わるバブル
-- バブル間でのデータの相互作用
-- バブルの色やラベルの動的変更
-- バブルの結合機能
+- Bubbles dynamically resize based on data update quantity.
+- Data interaction between bubbles.
+- Dynamic color and label changes for bubbles.
+- Bubble merging functionality.
 
-## 🚀 インストール
+🚀 **Installation**
 
-```dart
+```bash
 dependencies:
   bubble_button: ^0.0.1
 
 
-## 📖 使い方
+🤝 Contribute
 
+Fork the repository.
+Clone it: git clone https://github.com/brief69/BubbleButton.git
+Create your feature branch: git checkout -b feature/YourFeature
+Make your changes and commit: git commit -am 'Add some YourFeature'
+Push to the branch: git push origin feature/YourFeature
+Submit a new Pull Request.
+📋 Roadmap
 
-import 'package:bubble_button/bubble_button.dart';
+ Basic bubble functionality
+ Interactions between bubbles
+ Improved bubble animations
+ Additional customization options for bubbles
+📜 License
 
-## 🤝 貢献する
+This project is licensed under the MIT License. For details, please refer to the LICENSE file.
 
-1. リポジトリをForkする
-2. `git clone https://github.com/brief69/BubbleButton.git` でクローンする
-3. `git checkout -b feature/YourFeature` で新しいブランチを作成する
-4. 変更を加え、`git commit -am 'Add some YourFeature'` でコミットする
-5. `git push origin feature/YourFeature` でブランチをPushする
-6. 新しいPull Requestを開く
+🙏 Support & Contact
 
-## 📋 ロードマップ
-
-- [x] バブルの基本機能
-- [x] バブルの相互作用
-- [ ] バブルのアニメーション向上
-- [ ] バブルのカスタマイズオプション追加
-
-## 📜 ライセンス
-
-このプロジェクトはMITライセンスの下でライセンスされています。詳細は[LICENSE](LICENSE)を参照してください。
-
-## 🙏 サポートと連絡先
-
-何か問題や提案があれば、Issueを開くか、//までお問い合わせください。
+If you encounter any issues or have suggestions, please open an Issue or engage in discussions.
