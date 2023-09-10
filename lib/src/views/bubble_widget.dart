@@ -1,13 +1,13 @@
-// /Users/ir/Desktop/BubbleButton/bubble_button/lib/src/views/bubble_widget.dart
+
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:bubble_button/src/providers/bubble_provider.dart'; // パスは適宜調整してください。
+import 'package:bubble_button/src/providers/bubble_provider.dart'; // パスは適宜調整
 
 class BubbleButton extends ConsumerWidget {
-  const BubbleButton({Key? key}) : super(key: key); // super.keyをKey? keyに修正
+  const BubbleButton({Key? key}) : super(key: key);
 
-  // bubbleProviderをクラス内で定義する代わりに、bubble_provider.dartからインポートします。
+  // bubbleProviderをクラス内で定義する代わりに、bubble_provider.dartからインポート
   
   @override
   Widget build(BuildContext context, WidgetRef ref) {
