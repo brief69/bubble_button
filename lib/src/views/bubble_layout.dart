@@ -3,7 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../example/ lib/main.dart';
+import '../../main.dart';
 import '../providers/bubble_interaction_provider.dart';
 
 class BubbleLayout extends ConsumerWidget {
